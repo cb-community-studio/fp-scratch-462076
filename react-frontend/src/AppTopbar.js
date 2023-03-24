@@ -107,7 +107,10 @@ const AppTopbar = (props) => {
                 [
                     {
                         label: "Welcome Back!",
-                        items: [{ label: "Sign In" }, { label: "Register" }],
+                        items: [
+                            { label: "Sign In", command: () => history.push("/login") },
+                            { label: "Register", command: () => history.push("/signup") },
+                        ],
                     },
                 ],
             ],
