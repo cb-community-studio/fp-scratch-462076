@@ -13,3 +13,35 @@
 .layout-main {
     flex: 1 1 auto;
 }
+
+.left-col,
+.right-col,
+.mid-col {
+    height: 580px;
+}
+
+.p-megamenu.p-megamenu-vertical {
+    height: 100%;
+    width: 100% !important;
+}
+
+.r-banner-container {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.hot-products-container {
+    border-radius: 10px;
+}
+
+.col-2 {
+    border-radius: 10px;
+}
+
+.hot-img {
+    height: 140px;
+    width: auto;
+}
