@@ -337,7 +337,7 @@ const Dashboard = (props) => {
                         <div className="r-banner-content">
                             <div className="text-content">
                                 <div className="club-header">
-                                    Buyers Club Benefits
+                                    Buyer Club Benefits
                                     <div className="arrow-sysmbol">
                                         <i className="pi pi-arrow-right" style={{ fontSize: "1.5rem" }}></i>
                                     </div>
