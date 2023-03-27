@@ -154,10 +154,14 @@ const MyRouter = () => {
         "layout-theme-light": layoutColorMode === "light",
     });
 
+    // exclude path for render other components inside div
+    const excludePaths = ["/login", "/signup"];
+
     return (
         // <div>
+
         <div className={wrapperClass} onClick={onWrapperClick}>
-            {location.pathname === "/login" ? null : (
+            {excludePaths.includes(location.pathname) ? null : (
                 <AppTopbar
                     onToggleMenuClick={onToggleMenuClick}
                     layoutColorMode={layoutColorMode}

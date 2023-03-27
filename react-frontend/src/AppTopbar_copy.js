@@ -56,33 +56,33 @@ const AppTopbar = (props) => {
 
             {/* search filter */}
 
-            {props.showSideMenuButton ? (
+            {/* {props.showSideMenuButton ? (
                 <button type="button" className="p-link  layout-menu-button layout-topbar-button" onClick={props.onToggleMenuClick}>
                     <i className="pi pi-bars" />
                 </button>
-            ) : null}
+            ) : null} */}
 
-            <button type="button" className="p-link layout-topbar-menu-button layout-topbar-button" onClick={props.onMobileTopbarMenuClick}>
+            {/* <button type="button" className="p-link layout-topbar-menu-button layout-topbar-button" onClick={props.onMobileTopbarMenuClick}>
                 <i className="pi pi-ellipsis-v" />
-            </button>
+            </button> */}
 
             <ul className={classNames("layout-topbar-menu lg:flex origin-top", { "layout-topbar-menu-mobile-active": props.mobileTopbarMenuActive })}>
-                {props.onSettings ? (
+                {/* {props.onSettings ? (
                     <li>
                         <button className="p-link layout-topbar-button" onClick={props.onSettings}>
                             <i className="pi pi-cog" />
                             <span>Settings</span>
                         </button>
                     </li>
-                ) : null}
-                {props.onAccount ? (
+                ) : null} */}
+                {/* {props.onAccount ? (
                     <li>
                         <button className="p-link layout-topbar-button" onClick={props.onAccount}>
                             <i className="pi pi-user" />
                             <span>Profile</span>
                         </button>
                     </li>
-                ) : null}
+                ) : null} */}
                 {props.isLoggedIn ? (
                     <Button className="p-button-rounded p-button-outlined ml-3" style={{ zIndex: 20 }} icon="pi pi-user" label={props.user?.email} onClick={toggleUserMenu} aria-controls="user-popup-menu" aria-haspopup />
                 ) : (

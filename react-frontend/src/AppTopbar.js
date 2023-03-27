@@ -36,16 +36,6 @@ const AppTopbar = (props) => {
         },
     ];
 
-    const onLogout = async () => {
-        try {
-            await props.logout();
-            history.replace("/");
-            toggleUserMenu();
-        } catch (error) {
-            console.log("error", error);
-        }
-    };
-
     // nav wrapper left menu
     const left_items = [
         {
@@ -101,21 +91,64 @@ const AppTopbar = (props) => {
             icon: "pi pi-fw pi-comments",
         },
         {
-            label: "Sign In | Register",
+            label: props.isLoggedIn ? props.user?.email : "Sign In | Register",
             icon: "pi pi-fw pi-user",
+
             items: [
                 [
                     {
                         label: "Welcome Back!",
-                        items: [
-                            { label: "Sign In", command: () => history.push("/login") },
-                            { label: "Register", command: () => history.push("/signup") },
-                        ],
+                        items: props.isLoggedIn
+                            ? [
+                                  {
+                                      label: "Logout",
+                                      template: (item) => {
+                                          return (
+                                              <ul className="p-menu-list p-reset border-top-1 border-200">
+                                                  <li className="p-menu-list p-reset">
+                                                      <a className="p-menuitem-link" onClick={onLogout} role="menuitem">
+                                                          <span className=""></span>
+                                                          <span className={"p-menuitem-text "}>My Account</span>
+                                                      </a>
+                                                  </li>
+                                                  <li className="p-menu-list p-reset">
+                                                      <a className="p-menuitem-link" onClick={onLogout} role="menuitem">
+                                                          <span className=""></span>
+                                                          <span className={"p-menuitem-text "}>My Orders</span>
+                                                      </a>
+                                                  </li>
+                                                  <li className="p-menu-list p-reset">
+                                                      <a className="p-menuitem-link" onClick={onLogout} role="menuitem">
+                                                          <span className={"text-primary"}></span>
+                                                          <span className={"p-menuitem-text text-primary"}>{item.label}</span>
+                                                      </a>
+                                                  </li>
+                                              </ul>
+                                          );
+                                      },
+                                  },
+                              ]
+                            : [
+                                  { label: "Sign In", command: () => history.push("/login") },
+                                  { label: "Register", command: () => history.push("/signup") },
+                              ],
                     },
                 ],
             ],
         },
     ];
+
+    // logout
+
+    const onLogout = async () => {
+        try {
+            await props.logout();
+            history.replace("/");
+            toggleUserMenu();
+        } catch (error) {
+            console.log("error", error);
+        }
+    };
 
     return (
         <div className="layout-topbar">
@@ -123,6 +156,7 @@ const AppTopbar = (props) => {
                 <div className="nav-left">
                     <MegaMenu className="megamenu-left" model={left_items} breakpoint="960px" />
                 </div>
+
                 <div className="nav-right">
                     <MegaMenu className="megamenu-right" model={right_items} breakpoint="960px" />
                 </div>
@@ -132,7 +166,7 @@ const AppTopbar = (props) => {
                 <div className="company-container">
                     <Link to="/">
                         <div className="company-items cursor-pointer min-w-max flex align-items-end">
-                            <img src={"assets/logo/cb-logo.svg"} height={30} className="mb-1 mr-2" />
+                            {/* <img src={"assets/logo/cb-logo.svg"} height={30} className="mb-1 mr-2" /> */}
                             <h3 className="text-orange-500" style={{ fontFamily: "MarlinGeo", fontWeight: "bolder", margin: 0 }}>
                                 Wholesale360
                             </h3>
